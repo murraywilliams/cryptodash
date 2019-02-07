@@ -5,6 +5,7 @@ import AppLayout from './AppLayout';
 import AppBar from './AppBar';
 import { AppProvider } from './AppProvider';
 import Settings from '../Settings';
+import Content from '../Shared/Content';
 
 const MyButton = styled.div`
   color: green;
@@ -15,8 +16,10 @@ class App extends Component {
     return (
       <AppLayout>
         <AppProvider>
-          <AppBar />
-          <Settings />
+          <Content>
+            <AppBar />
+            <Settings />
+          </Content>
         </AppProvider>
       </AppLayout>
     );
