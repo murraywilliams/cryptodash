@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { AppContext } from './AppProvider';
 
 const Logo = styled.div`
   font-size: 1.5em;
@@ -26,7 +27,13 @@ const toSentenceCase = lowerStr => {
 
 const ControlButton = ({ name, active }) => {
   return (
-    <ControlButtonElm active={active}>{toSentenceCase(name)}</ControlButtonElm>
+    <AppContext.Consumer>
+      {({ page, setPage }) => (
+        <ControlButtonElm active={page === name} onClick={() => setPage(name)}>
+          {toSentenceCase(name)}
+        </ControlButtonElm>
+      )}
+    </AppContext.Consumer>
   );
 };
 
