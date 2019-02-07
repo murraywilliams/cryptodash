@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import styled from 'styled-components';
 import WelcomeMessage from './WelcomeMessage';
+import AppLayout from './ApLayout';
 
 const MyButton = styled.div`
   color: green;
@@ -10,9 +11,9 @@ const MyButton = styled.div`
 class App extends Component {
   render() {
     return (
-      <div>
-        <WelcomeMessage />;
-      </div>
+      <AppLayout>
+        <WelcomeMessage />
+      </AppLayout>
     );
   }
 }
