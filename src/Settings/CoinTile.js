@@ -26,7 +26,6 @@ export default ({ coinKey, topSection }) => {
         } else if (isInFavorites(coinKey)) {
           TileClass = DisabledTile;
         }
-
         return (
           <TileClass
             onClick={clickCoinHandler(topSection, coinKey, addCoin, removeCoin)}
