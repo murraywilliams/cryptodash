@@ -19,6 +19,11 @@ const ControlButtonElm = styled.div`
     css`
       text-shadow: 0px 0px 60px #03ff03;
     `}
+  ${props =>
+    props.hidden &&
+    css`
+      display: none;
+    `}
 `;
 
 const toSentenceCase = lowerStr => {
@@ -28,8 +33,12 @@ const toSentenceCase = lowerStr => {
 const ControlButton = ({ name, active }) => {
   return (
     <AppContext.Consumer>
-      {({ page, setPage }) => (
-        <ControlButtonElm active={page === name} onClick={() => setPage(name)}>
+      {({ firstVisit, page, setPage }) => (
+        <ControlButtonElm
+          active={page === name}
+          onClick={() => setPage(name)}
+          hidden={firstVisit && name === 'dashboard'}
+        >
           {toSentenceCase(name)}
         </ControlButtonElm>
       )}
